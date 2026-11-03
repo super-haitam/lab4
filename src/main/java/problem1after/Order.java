@@ -21,7 +21,7 @@ public class Order {
 
     public Order(String customer) {
         this.customer = customer;
-        status = new NewState(this);
+        status = new NewState();
 
         subscribe(new CustomerSms());
         subscribe(new KitchenScreen());
