@@ -1,5 +1,6 @@
 package problem1after;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,14 +13,16 @@ public class Combo implements MenuItem {
         children = new ArrayList<>();
     }
 
-    Combo add(MenuItem menuItem) {
+    public Combo add(MenuItem menuItem) {
         children.add(menuItem);
         return this;
     }
 
     @Override
     public String getName() {
-        return name;
+        List<String> names = new ArrayList<>();
+        for (MenuItem child : children) names.add(child.getName());
+        return name + " [" + String.join(", ", names) + "]";
     }
 
     @Override

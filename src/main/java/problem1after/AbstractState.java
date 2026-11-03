@@ -22,6 +22,11 @@ public abstract class AbstractState implements OrderState {
     }
 
     @Override
+    public void markReady(Order o) {
+        defaultMessage("mark ready");
+    }
+
+    @Override
     public void deliver(Order o) {
         defaultMessage("deliver");
     }

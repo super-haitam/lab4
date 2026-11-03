@@ -21,9 +21,6 @@ public class Order {
     public Order(String customer) {
         this.customer = customer;
         status = new NewState();
-
-        subscribe(new CustomerSms());
-        subscribe(new KitchenScreen());
     }
 
     public void addDish(MenuItem dish) {
@@ -32,12 +29,7 @@ public class Order {
 
     // a combo: several dishes sold together with 10% off
     public void addCombo(String name, MenuItem[] menuItems) {
-        StringBuilder sb = new StringBuilder(name).append(" [");
-        if (menuItems.length > 0) sb.append(menuItems[0].getName());
-        for (int i = 1; i < menuItems.length; ++i) sb.append(", ").append(menuItems[i].getName());
-        sb.append("]");
-
-        Combo combo = new Combo(sb.toString());
+        Combo combo = new Combo(name);
         for (MenuItem menuItem : menuItems) combo.add(menuItem);
         menu.add(combo);
     }
@@ -74,6 +66,10 @@ public class Order {
 
     public void startPreparing() {
         status.startPreparing(this);
+    }
+
+    public void markReady() {
+        status.markReady(this);
     }
 
     public void deliver() {

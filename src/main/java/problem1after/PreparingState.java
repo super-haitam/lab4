@@ -6,7 +6,7 @@ public class PreparingState extends AbstractState {
     }
 
     @Override
-    public void deliver(Order o) {
-        o.setState(new DeliveredState());
+    public void markReady(Order o) {
+        o.setState(new ReadyState());
     }
 }
