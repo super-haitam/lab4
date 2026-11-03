@@ -1,6 +1,5 @@
 package problem1after;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,7 +92,7 @@ public class Order {
         observers.remove(observer);
     }
 
-    public void notifyObservers() {
+    private void notifyObservers() {
         for (OrderListener observer : observers) observer.statusChanged(this);
     }
 }

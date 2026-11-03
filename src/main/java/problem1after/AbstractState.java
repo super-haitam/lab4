@@ -1,7 +1,7 @@
 package problem1after;
 
-public class AbstractState implements OrderState {
-    String state;
+public abstract class AbstractState implements OrderState {
+    private final String state;
 
     public AbstractState(String state) {
         this.state = state;

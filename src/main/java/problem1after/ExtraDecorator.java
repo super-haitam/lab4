@@ -1,6 +1,6 @@
 package problem1after;
 
-public class ExtraDecorator implements MenuItem {
+public abstract class ExtraDecorator implements MenuItem {
     protected MenuItem decoratedMenuItem;
 
     public ExtraDecorator(MenuItem menuItem) {
